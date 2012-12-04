@@ -1,0 +1,14 @@
+<table class="table table-bordered">
+<%= tag_delete.fields_for :tags do |t| %>
+  <%# @posts.tags.each do |t| %>
+
+  <tr>
+    <form class="form-inline">
+        <td><%= t.name %></td>
+        <td><%#= tag_form.label :_destroy, 'Remove:' %></td>
+        <td><%= t.check_box :name %></td>
+    </form>
+  </tr>
+ <% end %>
+
+</table>

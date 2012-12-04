@@ -1,0 +1,41 @@
+<% counter = -1 %>
+
+<table class="table">
+
+  <tr>
+  <th>tag</th>
+  <th>remove</th>
+  </tr>
+
+  <% @post.tags.build %>
+  <%# @post.tags.create %>
+  <%= form.fields_for :tags do |tag_form| %>
+
+  <%# need the counter for correct adding of tag out of the tagcloud %>
+  <% counter += 1 %> 
+
+  <tr>
+    <%# LOOKAT: i dont remove everything, or yes? (maybe this bug depends on something else)%>
+    <form class="form-inline">
+      <%# is needed because otherwise there is a remove row for not needed. guess it is the one of the new tag %>
+      <% unless tag_form.object.nil? || tag_form.object.new_record? %>
+        <td class="btn btn-info btn-mini"><%= tag_form.object.name %></td>
+        <td><%= tag_form.check_box :_destroy %></td>
+        <td><%#= link_to 'Delete', @tags, :confirm=> 'Are you sure?', :method => :delete %></td>
+        <td><%#= tag_form.text_field :name, :placeholder => "new tag" %></td>
+      <% end %>
+    </form>
+  </tr>
+
+  <tr>
+    <td colpsan="2">
+      <% if tag_form.object.nil? || tag_form.object.new_record? %>
+        <%= tag_form.text_field :name, :placeholder => "new tag" %>
+      <% end %>
+    </td>
+  </tr>
+
+
+ <% end %>
+
+</table>

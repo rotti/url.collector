@@ -1,0 +1,48 @@
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#tab1" data-toggle="tab"><b>name</b></a>
+    </li>
+    <li>
+      <a href="#tab2" data-toggle="tab"><b>title</b></a>
+    </li>
+    <li>
+      <a href="#tab3" data-toggle="tab"><b>description</b></a>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>actions</b><b class="caret"></b> </a>
+      <ul class="dropdown-menu">
+        <li>
+          <p> 
+            <%= link_to '', edit_post_path(@post), :class => 'btn btn-small icon-edit' %>
+            <%= "edit" %> 
+          </p>
+        </li>
+        <li>
+          <p> 
+            <%= link_to '', @post, confirm: 'Are you sure?', :method => :delete, :class => 'btn btn-small btn-danger icon-trash' %>
+            <%= "delete" %> 
+          </p>
+        </li>
+       </ul>
+    </li>
+    <li class="nav pull-right" style="font-size:xx-small">
+      <%= "ID: " + @post.id.to_s + "," + create_date(@post) + "," + update_date(@post) %>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <p class="lead"><%= @post.name %></p>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <p class="lead" > <%= link_to @post.title, @post.title, :target => '_blank', :class => 'btn btn-primary btn-link' %> </p>
+    </div>
+    <div class="tab-pane" id="tab3">
+      <blockquote>
+        <p class="text-info"><%= @post.content %></p>
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+

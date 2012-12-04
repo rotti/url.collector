@@ -1,0 +1,29 @@
+<table class="table">
+  <thead>
+    <% @tags.each_slice(8) do |tagslice| %>
+      <tr>
+        <% tagslice.each do |tag| %>
+          <% if tag.posts.count == 0 %>
+            <% @tag_name = tag.name %>
+            <% @tag_count =  " " %>
+          <% elsif tag.posts.count > 0 %>
+            <% @tag_name = tag.name %>
+            <% @tag_count = " ["+ tag.posts.count.to_s + "] " %>
+          <% else %>
+            <% @tag_name = tag.name %>
+            <% @tag_count = " [" + tag.posts.count.to_s + "] " %>
+          <% end %>
+          <td> 
+            <div class="button-labels" >
+              <label>
+                <%= @tag_name %>
+                <%= @tag_count %>
+                <%= check_box_tag "post[tag_ids][]", tag.id, @post.tags.include?(tag) %>
+              </label>
+            </div>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </thead>
+</table>

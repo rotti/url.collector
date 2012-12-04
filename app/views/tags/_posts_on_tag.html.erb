@@ -1,0 +1,15 @@
+<table class="table table-striped">
+  <tr>
+    <th>name</th>
+    <th>URL</th>
+    <th>description</th>
+  </tr>
+  <% @tag.posts.each do |post| %>
+  <tr>
+    <td><%= link_to post.name, post %></td>
+    <td><%= link_to post.title, post.title, :target => '_blank' %></td>
+    <td><%= link_to post.content, post %></td>
+    </td>
+  </tr>
+  <% end %>
+</table>

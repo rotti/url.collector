@@ -1,0 +1,117 @@
+<<<<<<< HEAD
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <table class="table">
+=======
+<%= form_for @post do |f| %>
+
+  <%= render :partial => "post_error" %>
+
+  <% @action_string = "" %>
+
+  <table class="table">
+    <thead>
+>>>>>>> foo
+      <tr>
+        <th>name</th>
+        <th>URL</th>
+        <th>description</th>
+<<<<<<< HEAD
+        <th>
+          <div class="actions"> 
+            <%= f.submit %>
+          </div>
+        </th>  
+      </tr>  
+      <tr>  
+        <td> <%= f.text_field :name, :placeholder => 'the name of your URL' %> </td>  
+        <td> <%= f.text_field :title, :placeholder => 'http://www.yourawesome.url' %> </td>  
+        <td> <%= f.text_area :content, :size => '2x4', :placeholder => 'say something. that will help a lot!' %> </td>
+        <td></td>
+      </tr>  
+
+      <tr>
+        <th> add tag </th>
+        <th>
+          <% @post.tags.build %> 
+          <%= f.fields_for :tags do |tag_form| %>
+            <% if tag_form.object.nil? || tag_form.object.new_record? %>
+              <%= tag_form.text_field :name, :placeholder => "new tag" %>
+            <% end %> 
+          <% end %>
+        </th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <% @tags.each do |tag| %>
+            <% if tag.posts.count == 0 %>
+              <% @tag_name_count = tag.name %>
+            <% elsif tag.posts.count > 0 %>
+              <% @tag_name_count = tag.name %>
+            <% else %>
+              <% @tag_name_count = tag.name + " [" + tag.posts.count.to_s + "]" %>
+            <% end %>
+            <i class="btn btn-info btn-mini">
+              <%= @tag_name_count %>
+              <%= check_box_tag "post[tag_ids][]", tag.id, @post.tags.include?(tag) %> </i>
+          <% end %>
+        </td>    
+      </tr>
+
+  </table>
+<% end %>
+=======
+        <th></th>
+        <th>
+          <div class="actions"> 
+            <%  if @current_action == "new" %>
+              <% @action_string = "create entry" %>
+            <%  elsif @current_action == "edit" %>
+              <% @action_string = "update entry " %>
+            <% end %>
+            <%= f.submit @action_string, :class => 'btn btn-small btn-success' %>
+          </div>
+        </th>  
+      </tr> 
+    </thead>
+    <tr>  
+      <td> <%= f.text_field :name, :placeholder => 'the name of your URL' %> </td>  
+      <td> <%= f.text_field :title, :placeholder => 'http://www.yourawesome.url', :class => 'span4' %> </td>  
+      <td colspan="2"> <%= f.text_area :content, :rows => 4, :placeholder => 'say something. that will help a lot!' %> </td>
+    </tr>  
+
+    <tr>
+      <th> add tag(s) </th>
+      <th>
+        <% @post.tags.build %> 
+        <%= f.fields_for :tags do |tag_form| %>
+          <% if tag_form.object.nil? || tag_form.object.new_record? %>
+            <%= tag_form.text_field :name, :placeholder => 'new tag', :class => 'span2' %>
+          <% end %> 
+        <% end %>
+      </th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </table>
+  
+  <%= render :partial => "post_tags_update" %>
+
+<% end %>
+
+>>>>>>> foo
