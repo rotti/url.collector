@@ -21,12 +21,10 @@ class TagsController < ApplicationController
 
   def destroy
     @tag = Tag.find(params[:id])
-    #@posts = Posts.all
     @tag.delete
 
     respond_to do |format|
       format.html { redirect_to posts_url }
-      #format.html { render action: "edit" }
       format.json { head :no_content }
     end
   end
