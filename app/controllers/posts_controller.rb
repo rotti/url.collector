@@ -3,7 +3,6 @@ class PostsController < ApplicationController
   # GET /posts.json
   helper_method :sort_column, :sort_direction
   def index
-    #@posts = Post.all
     @posts = Post.order(sort_column + ' ' + sort_direction)
 
     respond_to do |format|
@@ -16,8 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @tags = Tag.all.sort_by{|t| -t.posts.count }.reverse
-    #@tags = Tag.all
+    @tags = Tag.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -94,7 +92,6 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to posts_url }
-      #format.html { render action: "edit" }
       format.json { head :no_content }
     end
   end
