@@ -1,9 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="span12 pagination-centered">
 
-<div align="center" class="lead button-labels" >
-  <label>
-    <%= @tag.name %> 
-  </label>
+  <p id="notice"><%= notice %></p>
+
+  <div class="lead button-labels">
+    <label>
+      <%= @tag.name %> 
+    </label>
+  </div>
+
+  <p> 
+    <%= render :partial => "posts_on_tag" %>
+  </p>
+
 </div>
-
-<%= render :partial => "posts_on_tag" %>

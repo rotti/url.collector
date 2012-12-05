@@ -1,28 +1,32 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= sortable "id" %></th>
-      <th><%= sortable "name" %></th>
-      <th><%= sortable "title", "url" %></th>
-      <th width="10%"><%= sortable "content", "description" %></th>
-      <th>tags</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
+<div class="span12 pagination-centered">
+
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= link_to post.id, post %></td>
-        <td><%= link_to post.name, post %></td>
-        <td><%= link_to post.title, post.title, :target => '_blank' %></td>
-        <td><%= link_to post.content, post %></td>
-        <td>
-          <% post.tags.each do |tag| %>
-            <%= link_to tag.name, {:controller => "tags", :action => "show", :id => tag.id}, :class => "btn btn-info btn-mini" %>
-          <% end %>
-        </td>
+        <th><%= sortable "id" %></th>
+        <th><%= sortable "name" %></th>
+        <th><%= sortable "title", "url" %></th>
+        <th width="10%"><%= sortable "content", "description" %></th>
+        <th>tags</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= link_to post.id, post %></td>
+          <td><%= link_to post.name, post %></td>
+          <td><%= link_to post.title, post.title, :target => '_blank' %></td>
+          <td><%= link_to post.content, post %></td>
+          <td>
+            <% post.tags.each do |tag| %>
+              <%= link_to tag.name, {:controller => "tags", :action => "show", :id => tag.id}, :class => "btn btn-info btn-mini" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
 
 
