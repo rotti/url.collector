@@ -1,3 +1,24 @@
-<h1>Hello, Rails!</h1>
+<h1>url.collector</h2>
 
-<%= link_to "My Blog", posts_path %>
+<div class="row">
+  <div class="span8">
+    <p class="lead">
+      > just a small application your browser should do
+    </p>
+  </div>
+  <div class="span4">
+    <p>last three entries</p>
+    <table class="table-condensed">
+      <tr>
+        <th>name</th>
+        <th>url</th>
+      </tr>
+      <% @last_posts.each do |post| %>
+        <tr>
+          <td><%= link_to post.name, post %></td>
+          <td><%= link_to post.title, post.title, :target => '_blank' %></td>
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
