@@ -1,10 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="span0.5"></div>
+    <div class="span11" style="background-color: #eef4eb; padding: 8px; border-radius: 8px;">
+       <%= render :partial => "post_show" %>
+     </div>
+   <div class="span0.5"></div>
+</div>
+
 <div class="span12 pagination-centered">
-
-  <p id="notice"><%= notice %></p>
-
-  <%= render :partial => "post_show" %>
   <%= render :partial => "tags_on_post" %>
-
 </div>
 
 
