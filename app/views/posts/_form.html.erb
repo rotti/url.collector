@@ -1,25 +1,25 @@
-<div class="span12 pagination-centered">
+<%= form_for @post do |f| %>
 
-  <%= form_for @post do |f| %>
+  <%= render :partial => "post_error" %>
 
-    <%= render :partial => "post_error" %>
+  <% if @current_action == "edit" or "update" %>
+    <% @action_string = "update entry " %>
+  <% elsif @current_action == "new" or "create" %>
+    <% @action_string = "create entry" %>
+    <% @action_title = "new entry" %>
+  <% end %>
 
-    <% @action_string = "" %>
-
+  <h5> <%= @action_title %> </h5>
+  <%=  @current_action %>
+  <div class="span12 pagination-centered" style="background-color: #eef4eb; padding: 8px; border-radius: 8px;">
     <table class="table">
       <thead>
         <tr>
           <th>name</th>
-          <th>URL</th>
+          <th>url</th>
           <th>description</th>
-          <th></th>
           <th>
             <div class="actions"> 
-              <%  if @current_action == "new" %>
-                <% @action_string = "create entry" %>
-              <%  elsif @current_action == "edit" %>
-                <% @action_string = "update entry " %>
-              <% end %>
               <%= f.submit @action_string, :class => 'btn btn-small btn-success' %>
             </div>
           </th>  
@@ -28,9 +28,12 @@
       <tr>  
         <td> <%= f.text_field :name, :placeholder => 'the name of your URL' %> </td>  
         <td> <%= f.text_field :title, :placeholder => 'http://www.yourawesome.url', :class => 'span4' %> </td>  
-        <td colspan="2"> <%= f.text_area :content, :rows => 4, :placeholder => 'say something. that will help a lot!' %> </td>
+        <td ><%= f.text_area :content, :rows => 4, :placeholder => 'say something. that will help a lot!' %> </td>
+        <td></td>
       </tr>  
+    </table>
 
+    <table>
       <tr>
         <th> add tag(s) </th>
         <th>
@@ -49,6 +52,6 @@
   
     <%= render :partial => "post_tags_update" %>
 
-  <% end %>
+  </div>
+<% end %>
 
-</div>

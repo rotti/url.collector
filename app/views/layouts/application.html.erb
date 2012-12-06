@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html >
   <head>
     <title>url.collector</title>
     <%= favicon_link_tag %>
@@ -25,7 +25,7 @@
           </a>
           <li class="brand">
             <img class="logo" src="/url_collector.png">
-            url.collector
+            <%= link_to "url.collector", '/' %>
           </li>
           <ul class="nav">
             <li class="<%= 'active' if params[:controller] == 'posts' %>">

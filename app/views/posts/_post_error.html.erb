@@ -1,11 +1,17 @@
 <% if @post.errors.any? %>
-  <div id="alert alert-block alert-error">
-    <h2 class="alert-heading"><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-    <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+  <div class="row">
+    <div class="span1"></div>
+    <div class="span4">
+      <div class="alert alert-block alert-error">
+        <h5 class="alert-heading">there are errors [<%= @post.errors.count %>] in the following fields:</h5>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+     </div>
+     <div class="span7"></div>
   </div>
 <% end %>
 
