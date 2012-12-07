@@ -17,7 +17,7 @@
           <td><%= link_to post.name, post %></td>
           <td><%= link_to post.title, post.title, :target => '_blank' %></td>
           <td><%= link_to post.content, post, :class => 'span4'  %></td>
-          <td >
+          <td style="line-height: 2.3;">
             <% post.tags.each do |tag| %>
               <%= link_to tag.name, {:controller => "tags", :action => "show", :id => tag.id}, :class => "btn btn-info btn-mini" %>
             <% end %>
