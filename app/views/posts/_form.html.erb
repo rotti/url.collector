@@ -2,15 +2,7 @@
 
   <%= render :partial => "post_error" %>
 
-  <% if @current_action == "edit" or "update" %>
-    <% @action_string = "update entry " %>
-  <% elsif @current_action == "new" or "create" %>
-    <% @action_string = "create entry" %>
-    <% @action_title = "new entry" %>
-  <% end %>
-
   <h5> <%= @action_title %> </h5>
-  <%=  @current_action %>
   <div class="span12 pagination-centered" style="background-color: #eef4eb; padding: 8px; border-radius: 8px;">
     <table class="table">
       <thead>
@@ -28,8 +20,7 @@
       <tr>  
         <td> <%= f.text_field :name, :placeholder => 'the name of your URL' %> </td>  
         <td> <%= f.text_field :title, :placeholder => 'http://www.yourawesome.url', :class => 'span4' %> </td>  
-        <td ><%= f.text_area :content, :rows => 4, :placeholder => 'say something. that will help a lot!' %> </td>
-        <td></td>
+        <td><%= f.text_area :content, :rows => 4, :placeholder => 'say something. that will help a lot!' %> </td>
       </tr>  
     </table>
 
