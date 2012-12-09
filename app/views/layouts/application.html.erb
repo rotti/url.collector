@@ -4,12 +4,7 @@
     <title>url.collector</title>
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%#= javascript_include_tag "application" %>
     <%= javascript_include_tag "jquery", "application" %>
-
-    <%#= javascript_include_tag  'jquery-latest','jquery.tablesorter.min' %>
-    <%#= stylesheet_link_tag 'stylesheet', 'jquery.tablesorter.style' %> 
-
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
@@ -30,10 +25,10 @@
           </li>
           <ul class="nav">
             <li class="<%= 'active' if params[:controller] == 'posts' %>">
-              <%= link_to 'URL\'s', posts_path %>
+              <%= link_to 'urls', posts_path %>
             </li>
             <li class="<%= 'active' if params[:controller] == 'tags' %>">
-              <%= link_to 'Tag Cloud', tags_path %>
+              <%= link_to 'tags', tags_path %>
             </li>
           </ul>
           <ul class="nav pull-right">

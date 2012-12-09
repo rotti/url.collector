@@ -24,22 +24,15 @@
       </tr>  
     </table>
 
-    <table>
-      <tr>
-        <th> add tag(s) </th>
-        <th>
-          <% @post.tags.build %> 
-          <%= f.fields_for :tags do |tag_form| %>
-            <% if tag_form.object.nil? || tag_form.object.new_record? %>
-              <%= tag_form.text_field :name, :placeholder => 'new tag', :class => 'span2' %>
-            <% end %>
-          <% end %>
-        </th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </table>
+    <div class="span4"> 
+      <strong>create new tag</strong>
+      <% @post.tags.build %> 
+      <%= f.fields_for :tags do |tag_form| %>
+        <% if tag_form.object.nil? || tag_form.object.new_record? %>
+          <%= tag_form.text_field :name, :placeholder => 'tagname', :class => 'span2' %>
+        <% end %>
+      <% end %>
+    </div>
   
     <%= render :partial => 'post_tags_update' %>
 
