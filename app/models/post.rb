@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+  #in the view the columns are called different. see config/locales and the views
+  #title = url
+  #content = description
   attr_accessible :content, :name, :title, :tags_attributes, :tag_ids, :tag_id, :tag
 
   has_many :comments, :dependent => :destroy
@@ -12,10 +15,10 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :tags, :allow_destroy => :true,
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
-
+  #simple search interface for all columns of the post
   def self.search(search)  
     if search  
-      where('name LIKE ?', "%#{search}%")  
+      where('name || title || content LIKE ?', "%#{search}%")  
     else  
       scoped  
     end  

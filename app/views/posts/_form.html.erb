@@ -20,7 +20,7 @@
       <tr>  
         <td> <%= f.text_field :name, :placeholder => 'the name of your URL' %> </td>  
         <td> <%= f.text_field :title, :placeholder => 'http://www.yourawesome.url', :class => 'span4' %> </td>  
-        <td><%= f.text_area :content, :rows => 4, :placeholder => 'say something. that will help a lot!' %> </td>
+        <td> <%= f.text_area :content, :rows => 4, :placeholder => 'say something. that will help a lot!' %> </td>
       </tr>  
     </table>
 
@@ -32,7 +32,7 @@
           <%= f.fields_for :tags do |tag_form| %>
             <% if tag_form.object.nil? || tag_form.object.new_record? %>
               <%= tag_form.text_field :name, :placeholder => 'new tag', :class => 'span2' %>
-            <% end %> 
+            <% end %>
           <% end %>
         </th>
         <th></th>
@@ -41,7 +41,7 @@
       </tr>
     </table>
   
-    <%= render :partial => "post_tags_update" %>
+    <%= render :partial => 'post_tags_update' %>
 
   </div>
 <% end %>
