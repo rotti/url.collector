@@ -90,7 +90,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @posts = Post.find(params[:id])
     @post.destroy
-    @posts.destroy
 
     respond_to do |format|
       format.html { redirect_to posts_url }
