@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   helper_method :sort_column, :sort_direction
   def index
-    @posts = Post.order(sort_column + ' ' + sort_direction)
+    @per_page = params[:per_page] || Post.per_page || 5
+    @posts = Post.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => @per_page, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

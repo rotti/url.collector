@@ -1,32 +1,13 @@
-<div class="span12 pagination-centered" style="background-color: #eef4eb; padding: 8px; border-radius: 8px;">
-
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th><%= sortable "id" %></th>
-        <th><%= sortable "name" %></th>
-        <th><%= sortable "title", "url" %></th>
-        <th width="10%"><%= sortable "content", "description" %></th>
-        <th>tags</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td><%= link_to post.id, post %></td>
-          <td><%= link_to post.name, post %></td>
-          <td><%= link_to post.title, post.title, :target => '_blank' %></td>
-          <td><%= link_to post.content, post, :class => 'span4'  %></td>
-          <td style="line-height: 2.3;">
-            <% post.tags.each do |tag| %>
-              <%= link_to tag.name, {:controller => "tags", :action => "show", :id => tag.id}, :class => "btn btn-info btn-mini" %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+<div class="span2" style="background-color: #eef4eb; padding: 4px; border-radius: 8px;">
+  <small>
+    post per page:
+    <%= link_to '5', params.merge({:per_page => 5}), :class => "btn btn-link btn-mini" %>
+    <%= link_to '10', params.merge({:per_page => 10}), :class => "btn btn-link btn-mini" %>
+    <%= link_to '25', params.merge({:per_page => 25}), :class => "btn btn-link btn-mini" %>
+  </small>
+  <div class="span12 pagination-centered" style="background-color: #eef4eb; padding: 8px; border-radius: 8px;">
+    <div id="posts"><%= render 'posts' %></div>
+  </div>
 </div>
 
 

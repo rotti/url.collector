@@ -43,3 +43,31 @@ body { padding-top: 60px; }
   .border-radius(8px);
 }
 
+
+.pager {
+    cursor: default;
+}
+.pager .disabled {
+    border: 1px solid #DDDDDD;
+    color: #999999;
+}
+.pager a, .pager span, .pager em {
+    display: block;
+    float: left;
+    margin-right: 1px;
+    padding: 0.2em 0.5em;
+}
+
+
+*.unselectable {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;
+}

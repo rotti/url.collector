@@ -24,3 +24,17 @@ $(document).ready(function()
         $("#myTable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
     } 
 );
+
+$(function () {  
+  // sorting and pagination
+  $('#posts th a, #posts .pagination a').live('click', function () {  
+    $.getScript(this.href);  
+    return false;  
+  });
+  // search
+  $('#products_search input').keyup(function () {  
+    $.get($('#products_search').attr('action'),
+    $('#products_search').serialize(), null, 'script');  
+  return false;  
+});
+})
