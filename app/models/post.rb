@@ -13,8 +13,6 @@ class Post < ActiveRecord::Base
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
 
-  @pager = 6
-  self.per_page = @pager
   def self.search(search)  
     if search  
       where('name LIKE ?', "%#{search}%")  
