@@ -17,13 +17,21 @@
 //= require_tree .
 //= require jquery-tablesorter
 
-<%= javascript_include_tag "application" %>
+// <%= javascript_include_tag "application" %>
 
 $(document).ready(function() 
     { 
         $("#myTable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
     } 
 );
+
+//$(function () {  
+//  $('#posts th a').live('click', function () {  
+//    $.getScript(this.href);  
+//    return false;  
+//  });  
+//})
+
 
 $(function () {  
   // sorting and pagination
@@ -32,9 +40,9 @@ $(function () {
     return false;  
   });
   // search
-  $('#products_search input').keyup(function () {  
-    $.get($('#products_search').attr('action'),
-    $('#products_search').serialize(), null, 'script');  
+  $('#posts_search input').keyup(function () {  
+    $.get($('#posts_search').attr('action'),
+    $('#posts_search').serialize(), null, 'script');  
   return false;  
 });
 })
