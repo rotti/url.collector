@@ -12,6 +12,7 @@
  *= require_tree .
 */
 
+
 .table-borderless td,
 .table-borderless th {
    border-top: none; 

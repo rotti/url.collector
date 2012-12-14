@@ -24,18 +24,21 @@
       </tr>  
     </table>
 
-    <div class="span4"> 
-      <strong>create new tag</strong>
-      <% @post.tags.build %> 
-      <%= f.fields_for :tags do |tag_form| %>
-        <% if tag_form.object.nil? || tag_form.object.new_record? %>
-          <%= tag_form.text_field :name, :placeholder => 'tagname', :class => 'span2' %>
+    <div class="pull-left form-search"> 
+      <p><strong>select tags</strong></p>
+      <%= f.text_field :tag_tokens, "data-pre" => @post.tags.map(&:attributes).to_json %>      
+    <div> 
+
+    <br />  
+    <p><strong>create new tags</strong></p>
+    <div class="pull-right"> 
+      <%= f.fields_for :tags do |builder| %>
+        <% if builder.object.nil? || builder.object.new_record?  %>
+          <%= render 'tag_fields', :f => builder %>
         <% end %>
       <% end %>
+      <%= link_to_add_fields "", f, :tags %>
     </div>
   
-    <%= render :partial => 'post_tags_update' %>
-
   </div>
 <% end %>
-

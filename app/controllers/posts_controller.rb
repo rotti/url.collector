@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.js
-      #format.json { render json: @posts }
     end
   end
 
@@ -31,6 +30,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @posts = Post.new
     @tags = Tag.all
+    @tag = Tag.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -52,6 +52,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     @posts = Post.new(params[:post])
     @tags = Tag.all
+    @tag = Tag.new
 
     respond_to do |format|
       if @post.save

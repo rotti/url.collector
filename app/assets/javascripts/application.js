@@ -15,15 +15,17 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
-//= require jquery-tablesorter
+//= require jquery.tokeninput
+
+
 
 // <%= javascript_include_tag "application" %>
 
-$(document).ready(function() 
-    { 
-        $("#myTable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
-    } 
-);
+//$(document).ready(function() 
+//    { 
+//        $("#myTable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
+//    } 
+//);
 
 //$(function () {  
 //  $('#posts th a').live('click', function () {  
@@ -31,6 +33,32 @@ $(document).ready(function()
 //    return false;  
 //  });  
 //})
+
+
+function remove_fields(link) {
+        $(link).prev("input[type=hidden]").val("1");
+        $(link).closest(".fields").hide();
+}
+
+function add_fields(link, association, content) {
+        var new_id = new Date().getTime();
+        var regexp = new RegExp("new_" + association, "g");
+        $(link).parent().before(content.replace(regexp, new_id));
+}
+
+
+    // tokeninput
+    $(function () {  
+      $('#post_tag_tokens').tokenInput('/tags.json', {
+        //crossDomain: false,
+        preventDuplicates: true,
+        prePopulate: $(this).data('pre'),
+        theme: 'facebook',
+        hintText: 'search for tags ...',
+        noResultsText: 'no tag found',
+        searchingText: 'searching for tags ...'
+      });  
+    });  
 
 
 $(function () {  
