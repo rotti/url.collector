@@ -10,12 +10,13 @@ gem 'therubyracer'
 
 gem 'will_paginate',  '~> 3.0.0'
 gem 'will_paginate-bootstrap'
-gem 'meta_search'
+#gem 'meta_search'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  #gem 'sass-rails',   '~> 3.2.3'
+  #gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platform => :ruby
@@ -25,9 +26,11 @@ group :assets do
   gem 'less-rails'
 end
 
-gem 'bootstrap-sass'
+#gem 'facebox-rails'
+#gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem 'jquery-tablesorter'
+#gem 'jquery-tablesorter'
+gem 'jquery-tokeninput-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

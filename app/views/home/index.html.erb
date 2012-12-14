@@ -19,15 +19,16 @@
       <% end %>  
     </table>
   </div>
-
-  <div class="row">
-    <div class="span2"></div>
-    <div class="span6" style="background-color: #eef4eb; padding: 8px; border-radius: 8px;">
-      <% top_tags(@tag_postcount).each_pair do |tag_id,post_count| %>
-      <%= link_to "#{get_tagname(tag_id).name} [#{post_count}]", {:controller => "tags", :action => "show", :id => tag_id}, :class => "btn btn-info btn-mini" %>
-      <% end %>
-    </div>
-    <div class="span4"></div>
-  </div>
-
 </div>
+
+<br />
+<div class="row">
+  <div class="span2"></div>
+  <div class="span6" style="text-align: center; background-color: #eef4eb; padding: 8px; border-radius: 8px;">
+    <% top_tags(@tag_postcount).each_pair do |tag_id,post_count| %>
+    <%= link_to "#{get_tagname(tag_id).name} [#{post_count}]", {:controller => "tags", :action => "show", :id => tag_id}, :class => "btn btn-info btn-mini" %>
+    <% end %>
+  </div>
+  <div class="span4"></div>
+</div>
+
