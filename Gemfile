@@ -31,6 +31,7 @@ end
 gem 'jquery-rails'
 #gem 'jquery-tablesorter'
 gem 'jquery-tokeninput-rails'
+gem "jquery-qtip2-rails", "~> 0.3.0"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

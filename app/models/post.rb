@@ -31,6 +31,7 @@ class Post < ActiveRecord::Base
     end  
   end 
 
+  #show all posts on a specific tag
   def self.tagged_with(name)
     Tag.find_by_name!(name).posts
   end

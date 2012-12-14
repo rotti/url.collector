@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @posts = Post.all
     #last three created posts
     @last_posts = Post.find(:all, :order => "id desc", :limit => 3).reverse
    
