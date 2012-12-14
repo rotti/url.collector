@@ -38,9 +38,13 @@
       <p class="lead" > <%= link_to @post.title, @post.title, :target => '_blank', :class => 'btn btn-primary btn-link' %> </p>
     </div>
     <div class="tab-pane" id="tab3">
-      <blockquote>
-        <p class="text-info"><%= @post.content %></p>
-      </blockquote>
+      <% if @post.content.blank? %>
+        <em>no description on this entry</em> 
+      <% else %>  
+        <blockquote>
+          <p> <%= @post.content %> </p>
+        </blockquote>
+      <% end %>
     </div>
   </div>
 </div>
