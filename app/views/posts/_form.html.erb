@@ -25,12 +25,12 @@
     </table>
 
     <div class="pull-left form-search"> 
-      <p><strong>select tags</strong></p>
+      <p><strong rel="tooltip" title="attach existings tags to this entry. just start typing in the field">select tags</strong></p>
       <%= f.text_field :tag_tokens, "data-pre" => @post.tags.map(&:attributes).to_json %>      
     <div> 
 
     <br />  
-    <p><strong>create new tags</strong></p>
+    <p><strong rel="tooltip" title="create new tags. they will automatically attached to this entry">create new tags</strong></p>
     <div class="pull-right"> 
       <%= f.fields_for :tags do |builder| %>
         <% if builder.object.nil? || builder.object.new_record?  %>
