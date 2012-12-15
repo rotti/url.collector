@@ -17,6 +17,10 @@
 //= require_tree .
 //= require jquery.tokeninput
 
+// bootstrap tooltip
+$(function(){
+  $("a[rel='tooltip']").tooltip();
+})
 
 
 // <%= javascript_include_tag "application" %>
