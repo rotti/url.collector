@@ -1,4 +1,4 @@
-## just a small application your browser should do
+## url.collector - just a small application your browser should do
 
 The idea behind url.collector is to have a place to have web-links saved. Yes this is 
 something like bookmarking in your browser. 
@@ -9,8 +9,8 @@ comes, if you want to save and share URLs within your team, company, friends, ..
 It was developed with *ruby 1.9.2* and *rails 3.2.3.
 
 
-The real reson
-===============
+The real reason
+----------------
 Why I really made is this app is because I wanted to learn some coding. Espacially with RoR.
 So I started withthis project to learn the basic of rails-coding, versioning with GIT and
 have a playground, where I can try new things.
@@ -42,7 +42,7 @@ url.collector has working examples of
 
 Thanks to
 ---------
-http://guides.rubyonrails.org
-http://railscasts.com/
-https://github.com/kmerz/
-The Internet, for beeing nice to me and give me a lot of help
+* http://guides.rubyonrails.org
+* http://railscasts.com/
+* https://github.com/kmerz/
+* The Internet, for being nice to me and give me a lot of help. Awesome stuff there!
