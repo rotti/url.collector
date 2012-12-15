@@ -1,11 +1,10 @@
-url.collector
-=============
-=======
-# url.collector - just a small application your browser should do
+## just a small application your browser should do
 
-The idea behind url.collector is to have a place to have urls saved. Yes this is 
-something bookmarking of your browser can do. But url.collector provides a solution 
-to this within a team or a company. 
+The idea behind url.collector is to have a place to have web-links saved. Yes this is 
+something like bookmarking in your browser. 
+
+url.collector adds tagging, searching and some other stuff. The benefits of url.collector 
+comes, if you want to save and share URLs within your team, company, friends, ...
 
 It was developed with *ruby 1.9.2* and *rails 3.2.3.
 
@@ -17,7 +16,7 @@ So I started withthis project to learn the basic of rails-coding, versioning wit
 have a playground, where I can try new things.
 
 
-url.collector has Working examples of
+url.collector has working examples of
 ---------------------------------------
 * HABTM (has-and-belongs-to-many) rails application
   * http://railscasts.com/episodes/47-two-many-to-many
