@@ -7,14 +7,14 @@
   <div class="span4" style="background-color: #eef4eb; padding: 8px; border-radius: 8px;" >
     <table class="table-condensed">
       <tr>
-        <th>name</th>
-        <th>url</th>
+        <th width="30%">name</th>
+        <th width="70%">url</th>
       </tr>
 
       <% @last_posts.each do |post| %>
         <tr>
-          <td><%= link_to post.name, post %></td>
-          <td><%= link_to post.title, post.title, :target => '_blank' %></td>
+          <td><%= link_to post.name, post, {:rel => "tooltip", :title => "click to show more details for entry: #{post.name}", :data => { :delay => '800' } } %></td>
+          <td><%= link_to post.title, post.title, {:target => '_blank', :rel => "tooltip", :title => "open #{post.title}", :data => { :delay => '800' } } %></td>
         </tr>
       <% end %>  
     </table>
@@ -26,7 +26,7 @@
   <div class="span2"></div>
   <div class="span6" style="text-align: center; background-color: #eef4eb; padding: 8px; border-radius: 8px;">
     <% top_tags(@tag_postcount).each_pair do |tag_id,post_count| %>
-    <%= link_to "#{get_tagname(tag_id).name} [#{post_count}]", {:controller => "tags", :action => "show", :id => tag_id}, :class => "btn btn-info btn-mini" %>
+      <%= link_to "#{get_tagname(tag_id).name} [#{post_count}]", {:controller => "tags", :action => "show", :id => tag_id}, {:rel => "tooltip", :title => "show other entries attached to tag: #{get_tagname(tag_id).name}", :data => { :delay => '800' }, :class => "btn btn-info btn-mini"} %>
     <% end %>
   </div>
   <div class="span4"></div>

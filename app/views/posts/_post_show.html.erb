@@ -35,7 +35,7 @@
       <p class="lead"><%= @post.name %></p>
     </div>
     <div class="tab-pane" id="tab2">
-      <p class="lead" > <%= link_to @post.title, @post.title, :target => '_blank', :class => 'btn btn-primary btn-link' %> </p>
+      <p class="lead" > <%= link_to @post.title, @post.title, { :target => '_blank', :rel => "tooltip", :title => "open this url", :data => { :delay => '800' }, :class => 'btn btn-primary btn-link' } %> </p>
     </div>
     <div class="tab-pane" id="tab3">
       <% if @post.content.blank? %>
