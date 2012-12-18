@@ -16,6 +16,8 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @first_post = Post.first
+    @last_post = Post.last
     @tags = Tag.all
 
     respond_to do |format|

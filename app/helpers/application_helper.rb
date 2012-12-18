@@ -34,7 +34,8 @@ module ApplicationHelper
 
 
   #google url shortener. place your API key in: config/google_api_key
-  Google::UrlShortener::Base.api_key =  File.open('config/google_api_key').read
+  #  Google::UrlShortener::Base.api_key =  File.open('config/google_api_key').read
+  Google::UrlShortener::Base.api_key = "false"
   def shorten_url(post_id)
     title = Post.find(post_id).title
     url = Google::UrlShortener::Url.new(:long_url => title)
