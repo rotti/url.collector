@@ -23,58 +23,46 @@ $(function(){
 })
 
 
-// <%= javascript_include_tag "application" %>
-
-//$(document).ready(function() 
-//    { 
-//        $("#myTable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
-//    } 
-//);
-
-//$(function () {  
-//  $('#posts th a').live('click', function () {  
-//    $.getScript(this.href);  
-//    return false;  
-//  });  
-//})
-
-
+// remove new tag
 function remove_fields(link) {
-        $(link).prev("input[type=hidden]").val("1");
-        $(link).closest(".fields").hide();
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".fields").hide();
 }
 
+//  add new tag
 function add_fields(link, association, content) {
-        var new_id = new Date().getTime();
-        var regexp = new RegExp("new_" + association, "g");
-        $(link).parent().before(content.replace(regexp, new_id));
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g");
+  $(link).parent().before(content.replace(regexp, new_id));
 }
 
 
-    // tokeninput
-    $(function () {  
-      $('#post_tag_tokens').tokenInput('/tags.json', {
-        //crossDomain: false,
-        preventDuplicates: true,
-        prePopulate: $(this).data('pre'),
-        theme: 'facebook',
-        hintText: 'search for tags ...',
-        noResultsText: 'no tag found',
-        searchingText: 'searching for tags ...'
-      });  
-    });  
+// tokeninput
+$(function () {  
+  $('#post_tag_tokens').tokenInput('/tags.json', {
+    //crossDomain: false,
+    preventDuplicates: true,
+    prePopulate: $(this).data('pre'),
+    theme: 'facebook',
+    hintText: 'search for tags ...',
+    noResultsText: 'no tag found',
+    searchingText: 'searching for tags ...'
+  });  
+});  
 
 
+// pager on post/index
 $(function () {  
   // sorting and pagination
   $('#posts th a, #posts .pagination a').live('click', function () {  
     $.getScript(this.href);  
     return false;  
   });
-  // search
-  $('#posts_search input').keyup(function () {  
-    $.get($('#posts_search').attr('action'),
-    $('#posts_search').serialize(), null, 'script');  
+
+// search
+$('#posts_search input').keyup(function () {  
+  $.get($('#posts_search').attr('action'),
+  $('#posts_search').serialize(), null, 'script');  
   return false;  
 });
 })
