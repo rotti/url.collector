@@ -16,3 +16,6 @@
 
 # VI swap files
 *.swp
+
+#my google API key
+config/google_api_key
