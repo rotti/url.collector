@@ -1,7 +1,15 @@
 <div class="span1" style="background-color: #eef4eb;">
   <small>
-    <div class="pull-left btn btn-small"><%= link_to '', @post.previous_post, :class => 'icon-backward pull-left' if @post.previous_post %></div>
-    <div class="pull-right btn btn-small"><%= link_to '', @post.next_post, :class => 'icon-forward pull-left' if @post.next_post %></div>
+    <% unless @post == @first_post %>
+      <div class="pull-left btn btn-small">
+        <%= link_to '', @post.previous_post, :class => 'icon-backward pull-left' if @post.previous_post %>
+      </div>
+    <% end %>
+    <% unless @post == @last_post %>
+      <div class="pull-right btn btn-small">
+        <%= link_to '', @post.next_post, :class => 'icon-forward pull-left' if @post.next_post %>
+      </div>
+    <% end %>
   </small>
   <div class="pagination-centered success" id="notice"><%= notice %></div>
   <br />

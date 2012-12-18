@@ -55,5 +55,10 @@ module Blog
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # shorten_url to goo.gl URLs
+    # true => enables goo.gl shortening
+    # false => prints "goo.gl not set" instead
+    config.shorten_url_bool = false
   end
 end
