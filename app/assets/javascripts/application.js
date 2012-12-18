@@ -51,9 +51,8 @@ $(function () {
 });  
 
 
-// pager on post/index
+// sorting and pagination
 $(function () {  
-  // sorting and pagination
   $('#posts th a, #posts .pagination a').live('click', function () {  
     $.getScript(this.href);  
     return false;  
