@@ -29,7 +29,7 @@ function remove_fields(link) {
   $(link).closest(".fields").hide();
 }
 
-//  add new tag
+// add new tag
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g");
@@ -58,10 +58,11 @@ $(function () {
     return false;  
   });
 
+
 // search
 $('#posts_search input').keyup(function () {  
-  $.get($('#posts_search').attr('action'),
-  $('#posts_search').serialize(), null, 'script');  
+    $.get($('#posts_search').attr('action'),
+    $('#posts_search').serialize(), null, 'script');  
   return false;  
-});
+  });
 })
