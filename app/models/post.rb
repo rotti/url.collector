@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_and_belongs_to_many :tags
 
-  validates :name,  :presence => true
+  validates :name,  :presence => true, :length => { :minimum => 3 }
   validates :title, :presence => true,
                     :format => URI::regexp(%w(http https)),
                     :length => { :minimum => 5 }
@@ -34,6 +34,16 @@ class Post < ActiveRecord::Base
   #show all posts on a specific tag
   def self.tagged_with(name)
     Tag.find_by_name!(name).posts
+  end
+
+  #previous post by id
+  def previous_post
+    self.class.first(:conditions => ["id < ?", id], :order => "id desc")
+  end
+
+  #next post by id
+  def next_post
+    self.class.first(:conditions => ["id > ?", id], :order => "id asc")
   end
 
 end

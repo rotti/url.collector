@@ -4,7 +4,7 @@
       <a href="#tab1" data-toggle="tab"><b>name</b></a>
     </li>
     <li>
-      <a href="#tab2" data-toggle="tab"><b>title</b></a>
+      <a href="#tab2" data-toggle="tab"><b>url</b></a>
     </li>
     <li>
       <a href="#tab3" data-toggle="tab"><b>description</b></a>
@@ -20,14 +20,14 @@
         </li>
         <li>
           <p> 
-            <%= link_to '', @post, confirm: 'Are you sure?', :method => :delete, :class => 'btn btn-small btn-danger icon-trash' %>
+          <%= link_to '', @post, confirm: 'Deleting entry! - Are you sure?', :method => :delete, :class => 'btn btn-small btn-danger icon-trash' %>
             <%= "delete" %> 
           </p>
         </li>
        </ul>
     </li>
     <li class="nav pull-right" style="font-size:xx-small">
-      <%= "ID: " + @post.id.to_s + "," + create_date(@post) + "," + update_date(@post) %>
+      <%= "#{@post.name}##{@post.id} :: #{shorten_url(@post.id)} :: #{create_date(@post)} :: #{update_date(@post)}" %>
     </li>
   </ul>
   <div class="tab-content">
@@ -35,7 +35,11 @@
       <p class="lead"><%= @post.name %></p>
     </div>
     <div class="tab-pane" id="tab2">
-      <p class="lead" > <%= link_to @post.title, @post.title, { :target => '_blank', :rel => "tooltip", :title => "open this url", :data => { :delay => '800' }, :class => 'btn btn-primary btn-link' } %> </p>
+      <p class="lead" >
+      <%= link_to @post.title, @post.title, { :target => '_blank', :rel => "tooltip", :title => "open this url", :data => { :delay => '800' }, :class => 'btn btn-primary btn-link' } %>
+
+      <p><%= "goo.gl URL: #{shorten_url(@post.id)}" %></p>
+      </p>
     </div>
     <div class="tab-pane" id="tab3">
       <% if @post.content.blank? %>

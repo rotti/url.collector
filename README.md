@@ -39,6 +39,7 @@ url.collector has working examples of
   * http://railscasts.com/episodes/228-sortable-table-columns
 * Simple search
   * http://railscasts.com/episodes/37-simple-search-form
+* URL shortening with google API
 
 Thanks to
 ---------

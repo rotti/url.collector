@@ -14,3 +14,9 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+
+# VI swap files
+*.swp
+
+#my google API key
+config/google_api_key

@@ -28,9 +28,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
-    @posts = Post.new
     @tags = Tag.all
-    @tag = Tag.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,7 +41,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @posts = Post.find(params[:id])
     @tags = Tag.all
-   
   end
 
   # POST /posts
@@ -71,8 +68,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @posts = Post.all
     @tags = Tag.all
-
-
 
     respond_to do |format|
       if @post.update_attributes(params[:post])

@@ -1,17 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="span1" style="background-color: #eef4eb;">
+  <small>
+    <div class="pull-left btn btn-small"><%= link_to '', @post.previous_post, :class => 'icon-backward pull-left' if @post.previous_post %></div>
+    <div class="pull-right btn btn-small"><%= link_to '', @post.next_post, :class => 'icon-forward pull-left' if @post.next_post %></div>
+  </small>
+  <div class="pagination-centered success" id="notice"><%= notice %></div>
+  <br />
+  <div class="row">
+    <div class="span0.5"></div>
+      <div class="span11" style="background-color: #eef4eb; padding: 8px; border-radius: 8px;">
+         <%= render :partial => "post_show" %>
+       </div>
+     <div class="span0.5"></div>
 
-<div class="row">
-  <div class="span0.5"></div>
-    <div class="span11" style="background-color: #eef4eb; padding: 8px; border-radius: 8px;">
-       <%= render :partial => "post_show" %>
-     </div>
-   <div class="span0.5"></div>
-</div>
-
-<p>
-  <div class="span8" style="background-color: #eef4eb; padding: 8px; border-radius: 8px; line-height: 4;" >
-    <%= render :partial => "tags_on_post" %>
+    <div class="span8" style="background-color: #eef4eb; padding: 8px; border-radius: 8px; line-height: 4;" >
+      <%= render :partial => "tags_on_post" %>
+    </div>
   </div>
-</p>
-
-
+</div>
