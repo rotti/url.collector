@@ -38,6 +38,7 @@ GEM
       json (>= 1.4.6)
       rest-client (>= 1.6.7)
       trollop (= 1.16.2)
+    gritter (1.0.2)
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.3)
@@ -116,6 +117,7 @@ PLATFORMS
 
 DEPENDENCIES
   google_url_shortener (~> 0.0.8)
+  gritter (= 1.0.2)
   jquery-rails
   jquery-tokeninput-rails
   less-rails

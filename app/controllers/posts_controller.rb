@@ -70,7 +70,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @posts = Post.all
     @tags = Tag.all
-
+    
     respond_to do |format|
       if @post.update_attributes(params[:post])
         format.html { redirect_to @post, notice: 'Entry was successfully updated.' }
