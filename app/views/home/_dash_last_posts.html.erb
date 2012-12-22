@@ -1,0 +1,12 @@
+<table class="table-condensed">
+  <tr>
+    <th width="30%">name</th>
+    <th width="70%">url</th>
+  </tr>
+  <% @last_posts.each do |post| %>
+    <tr>
+      <td><%= link_to post.name, post, {:rel => "tooltip", :title => "click to show more details for entry: #{post.name}", :data => { :delay => '800' } } %></td>
+      <td><%= link_to post.title, post.title, {:target => '_blank', :rel => "tooltip", :title => "open #{post.title}", :data => { :delay => '800' } } %></td>
+    </tr>
+  <% end %> 
+</table>
