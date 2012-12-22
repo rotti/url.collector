@@ -1,6 +1,6 @@
 <%= js add_gritter(flash[:notice], :image => :success, :title => @post.name, :time => 500) %>
 
-<div class="span1" style="background-color: #eef4eb;">
+<div class="span1 set-modal-background">
   <small>
     <% unless @post == @first_post %>
       <div class="pull-left btn btn-small">
@@ -16,11 +16,11 @@
   <br />
   <div class="row">
     <div class="span0.5"></div>
-    <div class="span11" style="background-color: #eef4eb; padding: 8px; border-radius: 8px;">
+    <div class="span11 background-box">
        <%= render :partial => "post_show" %>
      </div>
      <div class="span0.5"></div>
-    <div class="span8" style="background-color: #eef4eb; padding: 8px; border-radius: 8px; line-height: 4;" >
+     <div class="span8 background-box">
       <%= render :partial => "tags_on_post" %>
     </div>
   </div>
