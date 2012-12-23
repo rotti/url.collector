@@ -5,10 +5,11 @@ class PostsController < ApplicationController
   def index
     @per_page = params[:per_page] || Post.per_page || 5
     @posts = Post.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => @per_page, :page => params[:page])
+    @random_post = Post.order("RANDOM()").first
 
     respond_to do |format|
       format.html # index.html.erb
-      format.js
+      format.js # index.js.erb
     end
   end
 
@@ -95,6 +96,7 @@ class PostsController < ApplicationController
     end
   end
 
+  # Column Sorting
   private  
   def sort_column  
     Post.column_names.include?(params[:sort]) ? params[:sort] : "id"
