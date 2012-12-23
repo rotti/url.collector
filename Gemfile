@@ -21,6 +21,8 @@ gem 'jquery-tokeninput-rails'
 
 gem "google_url_shortener", "~> 0.0.8"
 
+gem "gritter", "1.0.2"
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

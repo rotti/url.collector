@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   def index
     @posts = Post.all
     #last three created posts
-    @last_posts = Post.find(:all, :order => "id desc", :limit => 3).reverse
+    @last_posts = Post.find(:all, :order => "id desc", :limit => 3)
    
     #create a hash of all Tags with their count of posts: "tag_id" => tag.post_id.count
     #XXX there must be a better way. there are too many areas inside and stuff and ...

@@ -34,8 +34,8 @@ body { padding-top: 60px; }
 // @linkColor: #ff0000;
 //
 
- @linkColor: #0044cc;
- @linkColorHover: #49AFCD;
+@linkColor: #0044cc;
+@linkColorHover: #49AFCD;
 
 
 @navbarText: #7490BC;
@@ -48,12 +48,102 @@ body { padding-top: 60px; }
 @navbarSearchPlaceholderColor: #ccc;
 @navbarBrandColor: @navbarLinkColor;
 
+body {
+  background-color: #fff;
+  color: #003;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #000; }
+  &:hover {
+    color: #000;
+    background-color: #fff; }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px; }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff; }
+  ul li {
+    font-size: 12px;
+    list-style: square; }
+}
+
+
 .navbar-inner {
   #gradient > .vertical(#7c95f9, #c7cde2);
   border: #E2E2E2;
   .border-radius(8px);
 }
 
+
+@backgroundboxBackgroundColor: #eef4eb;
+// @backgroundboxBackgroundColor: #91A394;
+
+.background-box {
+  background-color: @backgroundboxBackgroundColor;
+  padding: 8px;
+  border-radius: 8px;
+}
+.background-box-text-centered {
+  background-color: @backgroundboxBackgroundColor;
+  padding: 8px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.set-modal-background {
+  background-color: @backgroundboxBackgroundColor;
+}
+
+@fooBackgroundColor: #fff;
+.background-foo {
+  background-color: @fooBackgroundColor;
+}
 
 .pager {
     cursor: default;

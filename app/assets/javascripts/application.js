@@ -16,6 +16,8 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require jquery.tokeninput
+//= require gritter
+
 
 // bootstrap tooltip
 $(function(){
@@ -28,6 +30,7 @@ function remove_fields(link) {
   $(link).prev("input[type=hidden]").val("1");
   $(link).closest(".fields").hide();
 }
+
 
 // add new tag
 function add_fields(link, association, content) {

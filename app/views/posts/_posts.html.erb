@@ -1,0 +1,58 @@
+ <table class="table table-striped">
+  <thead>
+    <tr>
+      <th width="5%"> <%= sortable "id" %> </th>
+      <th width="10%"> <%= sortable "name" %> </th>
+      <th width="30%"> <%= sortable "title", "url"%> </th>
+      <th width="35%"> <%= sortable "content", "description" %> </th>
+      <th width="20%"><a href="#" rel="tooltip" title="tags attached to entry" data-delay="800">tags</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td> <%= link_to post.id, post, {:rel => "tooltip", :title => "click to show #{post.name} :: actions like delete and edit are found here", :data => { :delay => '800', :placement => 'right' }} %> </td>
+        <td> <%= link_to post.name, post_path(post.id), {:remote => true, :rel => 'tooltip', :data => { :toggle => 'modal', :target => "#myModal#{post.id}", :backdrop => true, :keyboard => true, :title => "open a modal for #{post.name}", :delay => '800'}} %> </td>
+        <td> <%= link_to post.title, post.title, {:target => '_blank', :rel => "tooltip", :title => "open #{post.title}", :data => { :delay => '800' }} %> </td>
+        <td> <%= link_to post.content, post_path(post.id), {:remote => true, :rel => 'tooltip', :data => { :toggle => 'modal', :target => "#myModal#{post.id}", :backdrop => true, :keyboard => true, :title => "open a modal for #{post.name}", :delay => '800'}} %> </td>
+        <td style="line-height: 2.3">
+          <% post.tags.each do |tag| %>
+            <%= link_to tag.name, {:controller => "tags", :action => "show", :id => tag.id}, {:rel => "tooltip", :title => "show other entries attached to tag: #{tag.name}", :data => { :delay => '800' } , :class => "btn btn-info btn-mini"} %>
+          <% end %>
+        </td>
+      </tr>
+
+      <%# XXX: Have a modal after each entry feels wrong. Need a way to make this different. %>
+      <div id="myModal<%= post.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header set-modal-background" >
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" rel="tooltip", title="close modal" >×</button>
+          <h3 id="myModalLabel">:: <%= post.name %> ::</h3>
+            <%= link_to '', edit_post_path(post), {:rel => "tooltip", :title => "edit #{post.name}", :data => { :delay => '800' } , :class => "icon-edit"} %>
+        </div>
+        <div class="modal-body">
+          <%= link_to post.title, post.title, {:target => '_blank', :rel => "tooltip", :title => "open #{post.title}", :data => { :delay => '800' }, :class => 'btn btn-link'} %> 
+        </div>
+        <div class="modal-body set-modal-background">
+          <div class="pull-left">
+            <% if post.content.blank? %>
+              <em>no description on this entry</em> 
+            <% else %>  
+              <%= post.content %>
+            <% end %>  
+          </div>
+        </div>
+        <div class="modal-body">
+          <div style="line-height: 2.3"> 
+            <% post.tags.each do |tag| %>
+              <%= link_to tag.name, {:controller => "tags", :action => "show", :id => tag.id}, {:rel => "tooltip", :title => "show other entries attached to tag: #{tag.name}", :data => { :delay => '800' }, :class => "btn btn-info btn-mini"} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+  </tbody>
+</table>
+
+  <%= will_paginate @posts, :renderer => BootstrapPagination::Rails %>
+

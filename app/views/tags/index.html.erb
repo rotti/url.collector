@@ -1,9 +1,9 @@
-<div class="span12 pagination-centered" style="background-color: #eef4eb; padding: 8px; border-radius: 8px; line-height: 4; word-spacing: 10">
-      <% @tags.each do |tag| %>
-          <%= link_to tag, :class => "btn btn-info btn-small" do %>
-            <%= "#{tag.name} [#{tag.posts.count.to_s}]" %>
-          <% end %>
-     <% end %>
+<div class="span12 pagination-centered background-box" style="line-height: 3">
+  <% @tags.each do |tag| %>
+    <%= link_to tag, :class => "btn btn-info btn-small" do %>
+      <%= "#{tag.name} [#{tag.posts.count.to_s}]" %>
+    <% end %>
+  <% end %>
 </div>
 
 
