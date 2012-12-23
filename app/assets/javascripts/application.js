@@ -55,17 +55,16 @@ $(function () {
 
 
 // sorting and pagination
-$(function () {  
-  $('#posts th a, #posts .pagination a').live('click', function () {  
-    $.getScript(this.href);  
-    return false;  
+$(function () {
+  // pagination
+  $('#posts th a, #posts .pagination a').live('click', function () {
+    $.getScript(this.href);
+    return false;
   });
-
-
-// search
-$('#posts_search input').keyup(function () {  
+  // search
+  $('#posts_search input').keyup(function () {
     $.get($('#posts_search').attr('action'),
-    $('#posts_search').serialize(), null, 'script');  
-  return false;  
+    $('#posts_search').serialize(), null, 'script');
+  return false;
   });
 })
