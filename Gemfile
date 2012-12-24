@@ -5,9 +5,6 @@ gem 'rails', '3.2.3'
 gem 'sqlite3'
 gem 'therubyracer'
 
-gem 'will_paginate',  '~> 3.0.0'
-gem 'will_paginate-bootstrap'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -18,9 +15,9 @@ end
 
 gem 'jquery-rails'
 gem 'jquery-tokeninput-rails'
-
 gem "google_url_shortener", "~> 0.0.8"
-
+gem 'will_paginate',  '~> 3.0.0'
+gem 'will_paginate-bootstrap'
 gem "gritter", "1.0.2"
 
 # To use ActiveModel has_secure_password

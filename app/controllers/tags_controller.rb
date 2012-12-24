@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  helper_method :sort_column, :sort_direction
 
   def index
     @tags = Tag.all
@@ -17,6 +18,7 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.js # show.js.erb
       format.json { render json: @tag }
     end
   end
@@ -39,6 +41,16 @@ class TagsController < ApplicationController
       format.html { redirect_to post_path(@post) }
       format.js
     end
+  end
+
+    # Column Sorting
+  private  
+  def sort_column  
+    Post.column_names.include?(params[:sort]) ? params[:sort] : "id"
+  end  
+    
+  def sort_direction  
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "desc"
   end
 
 end

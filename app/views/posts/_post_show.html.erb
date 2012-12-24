@@ -1,6 +1,6 @@
-<div class="tabbable"> <!-- Only required for left/right tabs -->
+<div class="tabbable background-box "> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
-    <li class="active">
+    <li>
       <a href="#tab1" data-toggle="tab"><b>name</b></a>
     </li>
     <li>
@@ -15,13 +15,13 @@
         <li>
           <p> 
             <%= link_to '', edit_post_path(@post), :class => 'btn btn-small icon-edit' %>
-            <%= "edit" %> 
+            <%= 'edit' %> 
           </p>
         </li>
         <li>
           <p> 
           <%= link_to '', @post, confirm: 'Deleting entry! - Are you sure?', :method => :delete, :class => 'btn btn-small btn-danger icon-trash' %>
-            <%= "delete" %> 
+            <%= 'delete' %> 
           </p>
         </li>
        </ul>
@@ -35,19 +35,17 @@
       <p class="lead"><%= @post.name %></p>
     </div>
     <div class="tab-pane" id="tab2">
-      <p class="lead" >
+      <p class="lead">
       <%= link_to @post.title, @post.title, { :target => '_blank', :rel => "tooltip", :title => "open this url", :data => { :delay => '800' }, :class => 'btn btn-primary btn-link' } %>
 
-      <p><%= "goo.gl URL: #{shorten_url(@post.id)}" %></p>
+      <p class="input-xlarge" id="disabledInput"> <%= "goo.gl URL: #{shorten_url(@post.id)}" %> </p>
       </p>
     </div>
     <div class="tab-pane" id="tab3">
       <% if @post.content.blank? %>
         <em>no description on this entry</em> 
       <% else %>  
-        <blockquote>
           <p> <%= @post.content %> </p>
-        </blockquote>
       <% end %>
     </div>
   </div>
