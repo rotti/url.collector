@@ -11,6 +11,4 @@ module PostsHelper
     " updated at: " + post.updated_at.strftime("%d %b. %Y") + " - " + post.updated_at.strftime("%H:%M") 
   end
 
-
-
 end
