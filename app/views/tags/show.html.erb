@@ -3,11 +3,9 @@
   <p id="notice"><%= notice %></p>
 
   <div class="lead pull-left">
-    <strong> <%= @tag.name %> </strong>
+    <strong style="color: #228B22"> <%= ":: #{@tag.name} ::" %> </strong>
   </div>
-
-  <p> 
+  <div> 
     <%= render :partial => "posts_on_tag" %>
-  </p>
-
+  </div>
 </div>

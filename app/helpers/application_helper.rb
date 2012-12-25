@@ -5,7 +5,7 @@ module ApplicationHelper
     title ||= column
     css_class = (column == sort_column) ? "current #{sort_direction}" : nil
     direction = (column == sort_column && sort_direction == "asc") ? "desc" : "asc"  
-    link_to title, params.merge(:sort => column, :direction => direction), { :rel => 'tooltip', :data => { :delay => '800' }, :title => "click to sort this column ascending :: click again to sort this column descending", :class => css_class}
+    link_to title, params.merge(:sort => column, :direction => direction), { :rel => 'tooltip', :data => { :delay => '800' }, :title => "click to sort this column ascending :: click again to sort this column descending", :class => css_class, :style => 'color: #228B22'}
   end  
 
   #show the 5 most used tags: "tag_id" => post_count
