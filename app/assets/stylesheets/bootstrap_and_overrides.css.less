@@ -94,16 +94,22 @@
   #gradient > .vertical(@COLjolly-green, @COLyellowgreen2);
 }
 
-// Hoover color, not for navbar
+// Hoover color, for active tab look at .navbar-background 
+@COLnavbarTab: @grayLighter;
 .nav > li > a:hover {
-  background-color: @grayLighter;
+  background-color: @COLnavbarTab;
+}
+.navbar-background {
+  background-color: @COLnavbarTab;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 // Active state, and it's :hover to override normal :hover
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
   color: @COLforestgreen;
-  background-color: @grayLighter;
+  background-color: @COLnavbarTab;
 }
 
 
@@ -111,13 +117,23 @@
 // the basics
 // -------------------------
 @bodyBackground: @grayDark;
-@textColor: @grayDark;
 
 
 // Links
 // -------------------------
 @linkColor: #08c;
 @linkColorHover: darken(@linkColor, 15%);
+
+a {
+  &:link {
+    color: lighten(@black, 15%) }
+  &:visited {
+    color: @black }
+  &:hover {
+    color: #000;
+    text-decoration: none;
+    background-color: transparent; }
+}
 
 
 // Tables
@@ -141,7 +157,7 @@
 
 
 
-// Input placeholder text color
+// Input fields
 // -------------------------
 @placeholderText: @COLdarkolivegreen;
 
@@ -179,16 +195,6 @@ pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
-}
-
-a {
-  color: #000;
-  &:visited {
-    color: #000; }
-  &:hover {
-    color: #000;
-    text-decoration: none;
-    background-color: transparent; }
 }
 
 div {
@@ -266,5 +272,4 @@ div {
     margin-right: 1px;
     padding: 0.2em 0.5em;
 }
-
 

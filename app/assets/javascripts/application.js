@@ -46,7 +46,7 @@ $(function () {
     //crossDomain: false,
     preventDuplicates: true,
     prePopulate: $(this).data('pre'),
-    theme: 'facebook',
+    // theme: 'facebook',
     hintText: 'search for tags ...',
     noResultsText: 'no tag found',
     searchingText: 'searching for tags ...'

@@ -5,7 +5,7 @@ module ApplicationHelper
     title ||= column
     css_class = (column == sort_column) ? "current #{sort_direction}" : nil
     direction = (column == sort_column && sort_direction == "asc") ? "desc" : "asc"  
-    link_to title, params.merge(:sort => column, :direction => direction), { :rel => 'tooltip', :data => { :delay => '800' }, :title => "click to sort this column ascending :: click again to sort this column descending", :class => css_class}
+    link_to title, params.merge(:sort => column, :direction => direction), { :rel => 'tooltip', :data => { :delay => '800' }, :title => "click to sort this column ascending :: click again to sort this column descending", :class => css_class, :style => 'color: #228B22'}
   end  
 
   #show the 5 most used tags: "tag_id" => post_count
@@ -20,7 +20,7 @@ module ApplicationHelper
 
   #remove nested field. used for new tag on post
   def link_to_remove_fields(name, f)
-    f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)", { :rel => 'tooltip', :data => { :delay => '800' }, :title => "remove row. tag will not be attached to entry.", :class =>  "icon-trash" } )
+    f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)", { :rel => 'tooltip', :data => { :delay => '800' }, :title => "remove row. tag will not be attached to entry.", :class => "icon-trash" } )
   end
 
   #add nested field. used for new tag on post
@@ -29,7 +29,7 @@ module ApplicationHelper
     fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
       render(association.to_s.singularize + "_fields", :f => builder)
     end
-    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", { :rel => 'tooltip', :data => { :delay => '800' }, :title => "add new row to enter a new tag. tag will be attached to the entry.", :class => "icon-plus" } )
+    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", { :rel => 'tooltip', :data => { :delay => '800' }, :title => "add new row to enter a new tag. tag will be attached to the entry.", :class => "pull-left icon-plus btn btn-small" } )
   end
 
 
