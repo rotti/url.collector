@@ -94,16 +94,22 @@
   #gradient > .vertical(@COLjolly-green, @COLyellowgreen2);
 }
 
-// Hoover color, not for navbar
+// Hoover color, for active tab look at .navbar-background 
+@COLnavbarTab: @grayLighter;
 .nav > li > a:hover {
-  background-color: @grayLighter;
+  background-color: @COLnavbarTab;
+}
+.navbar-background {
+  background-color: @COLnavbarTab;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 // Active state, and it's :hover to override normal :hover
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
   color: @COLforestgreen;
-  background-color: @grayLighter;
+  background-color: @COLnavbarTab;
 }
 
 
