@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   helper_method :sort_column, :sort_direction
   def index
-    @per_page = params[:per_page] || Post.per_page || 5
+    @default_per_page = 25
+    @per_page = params[:per_page] || @default_per_page || Post.per_page
     @posts = Post.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => @per_page, :page => params[:page])
     @random_post = Post.order("RANDOM()").first
 
