@@ -5,6 +5,7 @@
   <h5> <%= @action_title %> </h5>
   <div class="row span12 pagination-centered">
     <div class="span12 background-box"<>
+      <h5> <%= ":: #{@current_action} entry ::" %> </h5>
       <div class="row">
         <div class="action pull-right">
           <%= f.submit @action_string, :class => 'btn btn-small btn-success' %>
