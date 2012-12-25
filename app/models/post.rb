@@ -7,10 +7,11 @@ class Post < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_and_belongs_to_many :tags
 
-  validates :name,  :presence => true, :length => { :minimum => 3 }
+  validates :name,  :presence => true, :length => { :minimum => 3, :maximum => 25 }
   validates :title, :presence => true,
                     :format => URI::regexp(%w(http https)),
-                    :length => { :minimum => 5 }
+                    :length => { :minimum => 9, :maximum => 255 }
+  validates :content, :length => { :maximum => 2048 }
 
   accepts_nested_attributes_for :tags, :allow_destroy => :true,
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }

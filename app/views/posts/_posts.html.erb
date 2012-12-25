@@ -14,7 +14,7 @@
         <td> <%= link_to post.id, post, {:rel => "tooltip", :title => "click to show #{post.name} :: actions like delete and edit are found here", :data => { :delay => '800', :placement => 'right' }} %> </td>
         <td> <%= link_to post.name, post_path(post.id), {:remote => true, :rel => 'tooltip', :data => { :toggle => 'modal', :target => "#myModal#{post.id}", :backdrop => true, :keyboard => true, :title => "open a modal for #{post.name}", :delay => '800'}} %> </td>
         <td> <%= link_to post.title.truncate(150), post.title, {:target => '_blank', :rel => "tooltip", :title => "open #{post.title}", :data => { :delay => '800' }} %> </td>
-        <td> <%= link_to post.content, post_path(post.id), {:remote => true, :rel => 'tooltip', :data => { :toggle => 'modal', :target => "#myModal#{post.id}", :backdrop => true, :keyboard => true, :title => "open a modal for #{post.name}", :delay => '800'}} %> </td>
+        <td> <%= link_to post.content.truncate(255), post_path(post.id), {:remote => true, :rel => 'tooltip', :data => { :toggle => 'modal', :target => "#myModal#{post.id}", :backdrop => true, :keyboard => true, :title => "open a modal for #{post.name}", :delay => '800'}} %> </td>
         <td style="line-height: 2.3">
           <% post.tags.each do |tag| %>
             <%= link_to tag.name, {:controller => "tags", :action => "show", :id => tag.id}, {:rel => "tooltip", :title => "show other entries attached to tag: #{tag.name}", :data => { :delay => '800' } , :class => "btn btn-info btn-mini"} %>

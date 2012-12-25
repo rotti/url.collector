@@ -9,7 +9,7 @@
     <tr>
       <td><%= link_to post.name, post %></td>
       <td><%= link_to post.title.truncate(150), post.title, :target => '_blank' %></td>
-      <td><%= link_to post.content, post %></td>
+      <td><%= link_to post.content.truncate(255), post %></td>
       </td>
     </tr>
     <% end %>
