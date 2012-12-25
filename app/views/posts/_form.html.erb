@@ -3,42 +3,47 @@
   <%= render :partial => "post_error" %>
 
   <h5> <%= @action_title %> </h5>
-  <div class="span12 pagination-centered background-box">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>name</th>
-          <th>url</th>
-          <th>description</th>
-          <th>
-            <div class="actions"> 
-              <%= f.submit @action_string, :class => 'btn btn-small btn-success' %>
-            </div>
-          </th>  
-        </tr> 
-      </thead>
-      <tr>  
-        <td> <%= f.text_field :name, :placeholder => 'the name of your URL' %> </td>  
-        <td> <%= f.text_field :title, :placeholder => 'http://www.yourawesome.url', :class => 'span4' %> </td>  
-        <td> <%= f.text_area :content, :rows => 4, :placeholder => 'say something. that will help a lot!' %> </td>
-      </tr>  
-    </table>
-
-    <div class="pull-left form-search"> 
-      <p><strong rel="tooltip" title="attach existings tags to this entry. just start typing in the field">select tags</strong></p>
-      <%= f.text_field :tag_tokens, "data-pre" => @post.tags.map(&:attributes).to_json %>      
-    <div> 
-
-    <br />  
-    <p><strong rel="tooltip" title="create new tags. they will automatically attached to this entry">create new tags</strong></p>
-    <div class="pull-right"> 
-      <%= f.fields_for :tags do |builder| %>
-        <% if builder.object.nil? || builder.object.new_record?  %>
-          <%= render 'tag_fields', :f => builder %>
-        <% end %>
-      <% end %>
-      <%= link_to_add_fields "", f, :tags %>
+  <div class="row span12 pagination-centered">
+    <div class="span12 background-box"<>
+      <div class="row">
+        <div class="action pull-right">
+          <%= f.submit @action_string, :class => 'btn btn-small btn-success' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3">
+          <strong class="pull-left">name</strong><br />
+          <%= f.text_field :name, :placeholder => 'the name of your URL', :class => 'pull-left' %> 
+        </div>
+        <div class="span4">
+          <strong class="pull-left">url</strong><br />
+          <div> <%= f.text_field :title, :placeholder => 'http://www.yourawesome.url', :class => 'pull-left' %> </div>  
+        </div>
+        <div class="span5">
+          <strong class="pull-left">description</strong><br />
+          <%= f.text_area :content, :size => '4x4', :placeholder => 'say something. that will help a lot!', :class => 'pull-left' %> 
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="span3 pull-left form-search">
+          <strong class="pull-left" rel="tooltip" title="attach existings tags to this entry. just start typing in the field">select tags</strong>
+          <%= f.text_field :tag_tokens, "data-pre" => @post.tags.map(&:attributes).to_json %>      
+        </div>
+        <div class="span4"></div>
+        <div class="span5 pull-left">
+          <strong class="pull-left" rel="tooltip" title="create new tags. they will automatically attached to this entry">create new tags</strong> <br />
+          <div class="pull-left"> 
+            <%= f.fields_for :tags do |builder| %>
+              <% if builder.object.nil? || builder.object.new_record?  %>
+                <br /><%= render 'tag_fields', :f => builder %>
+              <% end %>
+            <% end %>
+            <p><%= link_to_add_fields "", f, :tags %></p>
+          </div>
+        </div>
+      </div>
     </div>
-  
   </div>
+
 <% end %>
