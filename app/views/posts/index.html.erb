@@ -1,9 +1,9 @@
 <div class="span2 background-box">
   <small>
-    post per page:
-    <%= link_to '5', params.merge({:per_page => 5}), :class => "btn btn-link btn-mini" %>
-    <%= link_to '10', params.merge({:per_page => 10}), :class => "btn btn-link btn-mini" %>
+    per page:
     <%= link_to '25', params.merge({:per_page => 25}), :class => "btn btn-link btn-mini" %>
+    <%= link_to '50', params.merge({:per_page => 50}), :class => "btn btn-link btn-mini" %>
+    <%= link_to '100', params.merge({:per_page => 100}), :class => "btn btn-link btn-mini" %>
   </small>
   <div class="span12 pagination-centered background-box">
     <div id="posts"><%= render 'posts' %></div>

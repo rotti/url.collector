@@ -1,0 +1,13 @@
+<h5 class="centered-text">
+  <%= "featured post: " %>
+  <%= link_to @featured_post.name, @featured_post, {:rel => "tooltip", :title => "click to show more details for entry: #{@featured_post.name}", :data => { :delay => '800' } } %>
+
+</h5>
+<p><%= link_to @featured_post.title.truncate(40), @featured_post.title, {:target => '_blank', :rel => "tooltip", :title => "open #{@featured_post.title}", :data => { :delay => '800' }} %></p>
+<p><em><%= @featured_post.content.truncate(85) %></em></p>
+<br />
+<p>
+  <% @featured_post.tags.each do |tag| %>
+    <%= link_to tag.name, {:controller => "tags", :action => "show", :id => tag.id}, {:rel => "tooltip", :title => "show other entries attached to tag: #{tag.name}", :data => { :delay => '800' } , :class => "btn btn-info btn-mini" } %>
+  <% end %>
+</p>
