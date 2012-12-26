@@ -5,7 +5,7 @@
       <th width="10%"> <%= sortable "name" %> </th>
       <th width="30%"> <%= sortable "title", "url"%> </th>
       <th width="35%"> <%= sortable "content", "description" %> </th>
-      <th width="20%"><a href="#" rel="tooltip" title="tags attached to entry" data-delay="800" style="color: #228B22">tags</a></th>
+      <th width="20%"><a href="#" rel="tooltip" title="tags attached to entry" data-delay="800" style="color:#228B22">tags</a></th>
     </tr>
   </thead>
   <tbody>
@@ -26,7 +26,7 @@
       <div id="myModal<%= post.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header set-modal-background" >
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true" rel="tooltip", title="close modal" >×</button>
-          <h3 id="myModalLabel" style="color: #228B22">:: <%= post.name %> ::</h3>
+          <h3 id="myModalLabel" class="colored-text">:: <%= post.name %> ::</h3>
             <%= link_to '', edit_post_path(post), {:rel => "tooltip", :title => "edit #{post.name}", :data => { :delay => '800' } , :class => "icon-edit"} %>
         </div>
         <div class="modal-body">
