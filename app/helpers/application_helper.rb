@@ -42,7 +42,7 @@ module ApplicationHelper
       url = Google::UrlShortener::Url.new(:long_url => title)
       url.shorten! 
     else
-      "goo.gl not set"
+      "short url not set in config/application.rb"
     end
   end
 

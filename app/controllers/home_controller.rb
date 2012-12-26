@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     @posts = Post.all
     #last created posts
     @last_posts = Post.find(:all, :order => "id desc", :limit => 6)
+    @featured_post = Post.order("RANDOM()").first
    
     #create a hash of all Tags with their count of posts: "tag_id" => tag.post_id.count
     #XXX there must be a better way. there are too many areas inside and stuff and ...

@@ -27,7 +27,7 @@
        </ul>
     </li>
     <li class="nav pull-right" style="font-size:xx-small">
-      <%= "#{@post.name}##{@post.id} :: #{shorten_url(@post.id)} :: #{create_date(@post)} :: #{update_date(@post)}" %>
+      <%= "#{@post.name}##{@post.id} :: #{create_date(@post)} :: #{update_date(@post)}" %>
     </li>
   </ul>
   <div class="tab-content">
@@ -36,8 +36,11 @@
     </div>
     <div class="tab-pane navbar-background" id="tab2">
       <p class="lead">
-      <%= link_to @post.title, @post.title, { :target => '_blank', :rel => "tooltip", :title => "open this url", :data => { :delay => '800' }, :class => 'btn btn-primary btn-link' } %>
-      <p class="input-xlarge" id="disabledInput"> <%= "goo.gl URL: #{shorten_url(@post.id)}" %> </p>
+        <%= link_to @post.title, @post.title, { :target => '_blank', :rel => "tooltip", :title => "open this url", :data => { :delay => '800' }, :class => 'btn btn-primary btn-link' } %>
+      </p>
+      <p class="input-xlarge" id="disabledInput">
+        <strong><%= "short url:" %></strong>
+        <em> <%= "#{shorten_url(@post.id)}" %> </em>
       </p>
     </div>
     <div class="tab-pane navbar-background" id="tab3">
