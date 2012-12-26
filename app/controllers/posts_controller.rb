@@ -43,7 +43,6 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
-    @posts = Post.find(params[:id])
     @tags = Tag.all
   end
 
@@ -51,7 +50,6 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-    @posts = Post.new(params[:post])
     @tags = Tag.all
     @tag = Tag.new
 
@@ -88,7 +86,6 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post = Post.find(params[:id])
-    @posts = Post.find(params[:id])
     @post.destroy
 
     respond_to do |format|
