@@ -1,17 +1,17 @@
-<div class="span2 background-box">
-  <small>
+<div class="span3 background-box">
+  <div><small>
     per page:
     <%= link_to '25', params.merge({:per_page => 25}), :class => "btn btn-link btn-mini" %>
     <%= link_to '50', params.merge({:per_page => 50}), :class => "btn btn-link btn-mini" %>
     <%= link_to '100', params.merge({:per_page => 100}), :class => "btn btn-link btn-mini" %>
-  </small>
+  </small></div>
   <div class="span12 pagination-centered background-box">
     <div id="posts"><%= render 'posts' %></div>
   </div>
-  <small>
+  <div><small>
     <%= "total entries: #{@posts.count} ::" %>
-    <%= link_to 'random entry', @random_post %>
-  </small>
+    <%= link_to 'random entry', @random_post, {:target => 'blank', :rel => "tooltip", :title => "open #{strip_url(@random_post.title).truncate(30)}", :data => {:delay => '800'} } %>
+  </small></div>
 </div>
 
 

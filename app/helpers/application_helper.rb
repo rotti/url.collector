@@ -46,4 +46,16 @@ module ApplicationHelper
     end
   end
 
+
+  #strip URLs ... we all know they start with http://
+  def strip_url(url)
+    url.sub!(/https\:\/\/www./, '') if url.include? "https://www."
+    url.sub!(/https\:\/\//, '')     if url.include? "https://"
+    url.sub!(/http\:\/\/www./, '')  if url.include? "http://www."
+    url.sub!(/http\:\/\//, '')      if url.include? "http://"
+    url.sub!(/www./, '')            if url.include? "www."
+    
+    return url
+  end
+
 end
