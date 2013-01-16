@@ -1,14 +1,9 @@
 <div class="tabbable background-box "> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
-    <li>
-      <a href="#tab1" data-toggle="tab"><b>name</b></a>
-    </li>
-    <li>
-      <a href="#tab2" data-toggle="tab"><b>url</b></a>
-    </li>
-    <li>
-      <a href="#tab3" data-toggle="tab"><b>description</b></a>
-    </li>
+    <li> <a href="#tab1" data-toggle="tab"><b>summary</b></a> </li>
+    <li> <a href="#tab2" data-toggle="tab"><b>name</b></a> </li>
+    <li> <a href="#tab3" data-toggle="tab"><b>url</b></a> </li>
+    <li> <a href="#tab4" data-toggle="tab"><b>description</b></a> </li>
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>actions</b><b class="caret"></b> </a>
       <ul class="dropdown-menu">
@@ -32,9 +27,18 @@
   </ul>
   <div class="tab-content">
     <div class="tab-pane active navbar-background" id="tab1">
-      <p class="lead"><%= @post.name %></p>
+      <p class="lead"> <%= @post.name %> </p>
+      <p> <%= link_to @post.title, @post.title, { :target => 'blank', :rel => "tooltip", :title => "open this url", :data => { :delay => '800'}, :class => 'btn btn-primary btn-link' } %> </p>
+      <% if @post.content.blank? %>
+        <em>no description on this entry</em> 
+      <% else %>  
+        <p> <%= @post.content %> </p>
+      <% end %>
     </div>
     <div class="tab-pane navbar-background" id="tab2">
+      <p class="lead"> <%= @post.name %> </p>
+    </div>
+    <div class="tab-pane navbar-background" id="tab3">
       <p class="lead">
         <%= link_to @post.title, @post.title, { :target => '_blank', :rel => "tooltip", :title => "open this url", :data => { :delay => '800' }, :class => 'btn btn-primary btn-link' } %>
       </p>
@@ -43,11 +47,11 @@
         <em> <%= "#{shorten_url(@post.id)}" %> </em>
       </p>
     </div>
-    <div class="tab-pane navbar-background" id="tab3">
+    <div class="tab-pane navbar-background" id="tab4">
       <% if @post.content.blank? %>
         <em>no description on this entry</em> 
       <% else %>  
-          <p> <%= @post.content %> </p>
+        <p> <%= @post.content %> </p>
       <% end %>
     </div>
   </div>
