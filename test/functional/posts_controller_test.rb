@@ -9,11 +9,13 @@ class PostsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:posts)
+    assert_template(:index)
   end
 
   test "should get new" do
     get :new
     assert_response :success
+    assert_template(:new)
   end
 
   test "should create post" do
@@ -27,6 +29,7 @@ class PostsControllerTest < ActionController::TestCase
   test "should show post" do
     get :show, id: @post
     assert_response :success
+    assert_template(:show)
   end
 
   test "should get edit" do
@@ -46,4 +49,5 @@ class PostsControllerTest < ActionController::TestCase
 
     assert_redirected_to posts_path
   end
+
 end
