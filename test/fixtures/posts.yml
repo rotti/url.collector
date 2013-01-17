@@ -1,11 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  title: MyString
-  content: MyText
+  name: normal
+  title: http://www.test.de
+  content: test eintrag mit beschreibung
 
 two:
-  name: MyString
-  title: MyString
-  content: MyText
+  name: ohne www
+  title: http://test.com
+  content: test eintrag mit beschreibung, ohne www
+
+three:
+  name: https 
+  title: https://www.test.at
+  content: test eintrag mit beschreibung, https
+
+four:
+  name: ohne beschreibung
+  title: http://www.test.de
+  content: 
+
+
