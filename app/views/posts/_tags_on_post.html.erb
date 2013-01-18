@@ -3,6 +3,13 @@
 <% else %>
   <% @post.tags.each do |tag| %>
     <% @tag_string = "#{tag.name} [#{tag.posts.count.to_s}]" %>
-    <%= link_to @tag_string, {:controller => "tags", :action => "show", :id => tag.id}, { :rel => "tooltip", :title => "show other entries attached to tag: #{tag.name}", :data => { :delay => '800' }, :class => "btn btn-info btn-primary" }  %>
+    <%= link_to @tag_string, {
+      :controller => "tags", 
+      :action => "show", 
+      :id => tag.id}, { 
+        :rel => "tooltip", 
+        :title => "show other entries attached to tag: #{tag.name}", 
+        :data => { :delay => '800' }, 
+        :class => "btn btn-info btn-primary" }  %>
   <% end %>
 <% end %>

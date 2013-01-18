@@ -15,7 +15,10 @@
         </li>
         <li>
           <p> 
-          <%= link_to '', @post, confirm: 'Deleting entry! - Are you sure?', :method => :delete, :class => 'btn btn-small btn-danger icon-trash' %>
+            <%= link_to '', @post,
+              confirm: 'Deleting entry! - Are you sure?',
+              :method => :delete,
+              :class => 'btn btn-small btn-danger icon-trash' %>
             <%= 'delete' %> 
           </p>
         </li>
@@ -28,7 +31,12 @@
   <div class="tab-content">
     <div class="tab-pane active navbar-background" id="tab1">
       <p class="lead"> <%= @post.name %> </p>
-      <p> <%= link_to @post.title, @post.title, { :target => 'blank', :rel => "tooltip", :title => "open this url", :data => { :delay => '800'}, :class => 'btn btn-primary btn-link' } %> </p>
+      <p> <%= link_to @post.title, @post.title, { 
+        :target => 'blank', 
+        :rel => "tooltip", 
+        :title => "open this url", 
+        :data => { :delay => '800'}, 
+        :class => 'btn btn-primary btn-link' } %> </p>
       <% if @post.content.blank? %>
         <em>no description on this entry</em> 
       <% else %>  
@@ -40,7 +48,12 @@
     </div>
     <div class="tab-pane navbar-background" id="tab3">
       <p class="lead">
-        <%= link_to @post.title, @post.title, { :target => '_blank', :rel => "tooltip", :title => "open this url", :data => { :delay => '800' }, :class => 'btn btn-primary btn-link' } %>
+        <%= link_to @post.title, @post.title, {
+          :target => '_blank', 
+          :rel => "tooltip", 
+          :title => "open this url", 
+          :data => { :delay => '800' }, 
+          :class => 'btn btn-primary btn-link' } %>
       </p>
       <p class="input-xlarge" id="disabledInput">
         <strong><%= "short url:" %></strong>
