@@ -4,10 +4,17 @@
     <tr>
       <td>
         <strong>
-          <%= link_to post.name, post, {:rel => "tooltip", :title => "click to show more details for entry: #{post.name}", :data => { :delay => '800' } } %>
+          <%= link_to post.name, post, {
+            :rel => "tooltip", 
+            :title => "click to show more details for entry: #{post.name}", 
+            :data => { :delay => '800' } } %>
         </strong>
       </td>
-      <td><%= link_to post.title.truncate(35), post.title, {:target => '_blank', :rel => "tooltip", :title => "open #{strip_url(post.title).truncate(30)}", :data => { :delay => '800' } } %></td>
+      <td><%= link_to post.title.truncate(35), post.title, {
+        :target => '_blank', 
+        :rel => "tooltip", 
+        :title => "open #{strip_url(post.title).truncate(30)}", 
+        :data => { :delay => '800' } } %></td>
     </tr>
   <% end %> 
 </table>

@@ -3,7 +3,8 @@ class HomeController < ApplicationController
     @posts = Post.all
     #last created posts
     @last_posts = Post.find(:all, :order => "id desc", :limit => 6)
-    #value posts are defined with a description. sql: one character (_) followed by zero, one, or more characters (%)
+    #value posts are defined with a description. sql: one character (_) followed by zero, one, 
+    #or more characters (%)
     #if no post has a description we just take all posts
     @value_posts =  Post.where( 'content like ?', '_%' )
     if @value_posts.empty? 

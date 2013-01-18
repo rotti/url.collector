@@ -1,5 +1,12 @@
 <h5 class="centered-text">most used tags</h5>
 <% top_tags(@tag_postcount).each_pair do |tag_id,post_count| %>
-  <%= link_to "#{get_tagname(tag_id).name} [#{post_count}]", {:controller => "tags", :action => "show", :id => tag_id}, {:rel => "tooltip", :title => "show other entries attached to tag: #{get_tagname(tag_id).name}", :data => { :delay => '800' }, :class => "btn btn-info btn-small centered-text"} %>
+  <%= link_to "#{get_tagname(tag_id).name} [#{post_count}]", {
+    :controller => "tags", 
+    :action => "show", 
+    :id => tag_id}, {
+      :rel => "tooltip", 
+      :title => "show other entries attached to tag: #{get_tagname(tag_id).name}", 
+      :data => { :delay => '800' }, 
+      :class => "btn btn-info btn-small centered-te1xt"} %>
 <% end %>
 

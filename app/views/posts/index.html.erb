@@ -10,7 +10,11 @@
   </div>
   <div><small>
     <%= "total entries: #{@posts.count} ::" %>
-    <%= link_to 'random entry', @random_post, {:target => 'blank', :rel => "tooltip", :title => "open #{strip_url(@random_post.title).truncate(30)}", :data => {:delay => '800'} } %>
+    <%= link_to 'random entry', @random_post, {
+      :target => 'blank', 
+      :rel => "tooltip", 
+      :title => "open #{strip_url(@random_post.title).truncate(30)}", 
+      :data => {:delay => '800'} } %>
   </small></div>
 </div>
 
