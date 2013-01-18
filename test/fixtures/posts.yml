@@ -18,6 +18,14 @@ three:
 four:
   name: ohne beschreibung
   title: http://www.test.de
-  content: 
+  content:
+
+<% (5..100).each do |number| %>
+post_<%= number %>:
+  title: post-count_<%= number %>
+  title: http://www.domain_<%= number %>
+  content: description__<%= number %>
+  id: <%= number %>
+<% end %> 
 
 
